@@ -1,0 +1,30 @@
+<h1>Xin's Cool ideas</h1>
+
+<p> Other ideas that Xin has </p>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Picture</th>
+    <th>Show</th>
+    <th>Edit</th>
+    <th>Destroy</th>
+  </tr>
+
+<% @ideas.each do |idea| %>
+  <tr>
+    <td align="center"><%= idea.name %></td>
+    <td align="center"><%= idea.description %></td>
+    <td align="center"><%= idea.picture %></td>
+    <td><%= link_to 'Show', idea , :class => "btn btn-primary" %></td>
+    <td><%= link_to 'Edit', edit_idea_path(idea),  :class => "btn btn-success"  %></td>
+    <td><%= link_to 'Destroy', idea,   :class => "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' , } %></td>
+  </tr>
+<% end %>
+
+</table>
+
+
+<br />
+
+<%= link_to 'New Idea', new_idea_path %>
